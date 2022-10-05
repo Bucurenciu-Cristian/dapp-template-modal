@@ -3,6 +3,7 @@ import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import Transaction from './pages/Transaction';
+import ModalView from './pages/ModalView';
 
 export const routeNames = {
   home: '/',
@@ -10,7 +11,8 @@ export const routeNames = {
   transaction: '/transaction',
   unlock: '/unlock',
   ledger: '/ledger',
-  walletconnect: '/walletconnect'
+  walletconnect: '/walletconnect',
+  modal: '/modal'
 };
 
 const routes: Array<any> = [
@@ -29,6 +31,11 @@ const routes: Array<any> = [
     path: routeNames.transaction,
     title: 'Transaction',
     component: Transaction
+  },
+  {
+    path: routeNames.modal,
+    title: 'Modal',
+    component: ModalView
   }
 ];
 

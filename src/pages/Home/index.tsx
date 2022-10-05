@@ -26,6 +26,14 @@ const Home = () => {
               >
                 Login
               </Link>
+
+              <Link
+                to={routeNames.modal}
+                className='btn btn-primary mt-3 text-white'
+                data-testid='modalBtn'
+              >
+                Modal
+              </Link>
             </div>
           </div>
         </div>
