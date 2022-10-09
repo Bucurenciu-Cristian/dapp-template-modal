@@ -2,8 +2,8 @@ import { dAppName } from 'config';
 import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import ModalX from './pages/ModalX';
 import Transaction from './pages/Transaction';
-import ModalView from './pages/ModalView';
 
 export const routeNames = {
   home: '/',
@@ -12,7 +12,7 @@ export const routeNames = {
   unlock: '/unlock',
   ledger: '/ledger',
   walletconnect: '/walletconnect',
-  modal: '/modal'
+  modalActivation: '/modalX'
 };
 
 const routes: Array<any> = [
@@ -33,12 +33,12 @@ const routes: Array<any> = [
     component: Transaction
   },
   {
-    path: routeNames.modal,
+    path: routeNames.modalActivation,
     title: 'Modal',
-    component: ModalView
+    component: ModalX,
+    modal: true
   }
 ];
-
 const mappedRoutes = routes.map((route) => {
   const title = route.title
     ? `${route.title} • Elrond ${dAppName}`
@@ -50,7 +50,8 @@ const mappedRoutes = routes.map((route) => {
   return {
     path: route.path,
     component: wrappedComponent,
-    authenticatedRoute: requiresAuth
+    authenticatedRoute: requiresAuth,
+    modal: route.modal
   };
 });
 

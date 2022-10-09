@@ -10,30 +10,32 @@ const Home = () => {
         <div className='col-12 col-md-8 col-lg-5 mx-auto'>
           <div className='card shadow-sm rounded p-4 border-0'>
             <div className='card-body text-center'>
-              <h2 className='mb-3' data-testid='title'>
-                {dAppName}
-              </h2>
+              <div className='card-body py-4 px-2 px-sm-2 mx-lg-4'>
+                <h2 className='mb-3' data-testid='title'>
+                  {dAppName}
+                </h2>
 
-              <p className='mb-3'>
-                This is an Elrond dapp sample.
-                <br /> Login using your Elrond wallet.
-              </p>
+                <p className='mb-3'>
+                  This is an Elrond dapp sample.
+                  <br /> Login using your Elrond wallet.
+                </p>
 
-              <Link
-                to={routeNames.unlock}
-                className='btn btn-primary mt-3 text-white'
-                data-testid='loginBtn'
-              >
-                Login
-              </Link>
+                <Link
+                  to={routeNames.unlock}
+                  className='btn btn-primary mt-3 text-white'
+                  data-testid='loginBtn'
+                >
+                  Login
+                </Link>
 
-              <Link
-                to={routeNames.modal}
-                className='btn btn-primary mt-3 text-white'
-                data-testid='modalBtn'
-              >
-                Modal
-              </Link>
+                <Link
+                  to={routeNames.modalActivation}
+                  className='btn btn-primary mt-3 ml-3 text-white'
+                  data-testid='modalBtn'
+                >
+                  Modal
+                </Link>
+              </div>
             </div>
           </div>
         </div>
