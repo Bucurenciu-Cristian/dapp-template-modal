@@ -36,7 +36,15 @@ const Home = () => {
                   className='btn btn-primary mt-3 ml-3 text-white'
                   data-testid='modalBtn'
                 >
-                  Modal
+                  ModalX
+                </Link>
+                <Link
+                  to={contextualRouteNames.newRoute}
+                  state={{ background: location }}
+                  className='btn btn-primary mt-3 ml-3 text-white'
+                  data-testid='modalBtn'
+                >
+                  newRoute
                 </Link>
                 <Outlet />
               </div>

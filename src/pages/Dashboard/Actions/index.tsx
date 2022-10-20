@@ -14,14 +14,9 @@ import { ProxyNetworkProvider } from '@elrondnetwork/erdjs-network-providers';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
-import { Button, Modal } from 'react-bootstrap';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { contractAddress } from 'config';
-import {
-  contextualArray,
-  contextualRouteNames,
-  routeNames
-} from '../../../routes';
+import { contextualRouteNames } from '../../../routes';
 
 const Actions = () => {
   const account = useGetAccountInfo();
@@ -34,8 +29,6 @@ const Actions = () => {
   const /*transactionSessionId*/ [, setTransactionSessionId] = React.useState<
       string | null
     >(null);
-  const [openFirst, setOpenFirst] = React.useState(false);
-  const [openSecond, setOpenSecond] = React.useState(false);
   const mount = () => {
     if (secondsLeft) {
       const interval = setInterval(() => {
@@ -166,45 +159,6 @@ const Actions = () => {
                 >
                   Modal Route
                 </Link>
-              </div>
-              <div className=''>
-                <Button
-                  onClick={() => setOpenFirst(true)}
-                  className='btn btn-secondary mt-3 text-white'
-                  data-testid='modalBtn'
-                >
-                  Modal Normal
-                </Button>
-                <Modal
-                  show={openFirst}
-                  aria-labelledby='modal-1-label'
-                  onHide={() => setOpenFirst(false)}
-                  renderBackdrop={(props: any) => (
-                    <div
-                      {...props}
-                      className='fixed inset-0 bg-black/30 z-[300]'
-                    />
-                  )}
-                  centered
-                  className='fixed z-[301] top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 shadow-lg p-5'
-                >
-                  <div>
-                    <Modal.Header>
-                      <h4 id='modal-1-label'>Alert!</h4>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <p>Some important content!</p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button
-                        onClick={() => setOpenFirst(false)}
-                        className='float-right'
-                      >
-                        Close
-                      </Button>
-                    </Modal.Footer>
-                  </div>
-                </Modal>
               </div>
             </div>
           ) : (

@@ -13,8 +13,6 @@ import PageNotFound from 'pages/PageNotFound';
 import { routeNames } from 'routes';
 import { contextualArray } from 'routes';
 import routes from 'routes';
-import ModalActivation from './components/ModalActivation';
-import ModalView from './components/ModalView';
 import UnlockPage from './pages/UnlockPage';
 
 const environment = 'devnet';
@@ -32,7 +30,6 @@ const App = () => {
       <Layout>
         <TransactionsToastList />
         <NotificationModal />
-        {/*<ModalView />*/}
         <SignTransactionsModals className='custom-class-for-modals' />
         <Routes location={background || location}>
           <Route path={routeNames.unlock} element={<UnlockPage />} />
@@ -55,7 +52,7 @@ const App = () => {
                 key={'route-key-' + index}
                 element={
                   <Modal show={true} centered>
-                    <route.component />
+                    <route.component background={background} />
                   </Modal>
                 }
               />

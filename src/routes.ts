@@ -3,6 +3,7 @@ import withPageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import ModalX from './pages/ModalX';
+import NewRoute from './pages/NewRoute';
 import Transaction from './pages/Transaction';
 
 export const routeNames = {
@@ -15,15 +16,20 @@ export const routeNames = {
   modalNew: '/modalNew'
 };
 export const contextualRouteNames = {
-  modalActivation: '/modalX'
+  modalActivation: '/modalX',
+  newRoute: '/NewRoute'
 };
 const firstModal = {
   path: contextualRouteNames.modalActivation,
   title: 'Modal',
-  component: ModalX,
-  modal: true
+  component: ModalX
 };
-export const contextualArray: Array<any> = [firstModal];
+const secondModal = {
+  path: contextualRouteNames.newRoute,
+  title: 'Modal',
+  component: NewRoute
+};
+export const contextualArray: Array<any> = [firstModal, secondModal];
 
 const routes: Array<any> = [
   {
@@ -43,12 +49,7 @@ const routes: Array<any> = [
     component: Transaction
   },
   firstModal,
-  {
-    path: routeNames.modalNew,
-    title: 'ModalNew',
-    component: ModalX,
-    modal: true
-  }
+  secondModal
 ];
 const mappedRoutes = routes.map((route) => {
   const title = route.title
@@ -61,8 +62,7 @@ const mappedRoutes = routes.map((route) => {
   return {
     path: route.path,
     component: wrappedComponent,
-    authenticatedRoute: requiresAuth,
-    modal: route?.modal
+    authenticatedRoute: requiresAuth
   };
 });
 
