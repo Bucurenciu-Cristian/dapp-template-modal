@@ -12,8 +12,18 @@ export const routeNames = {
   unlock: '/unlock',
   ledger: '/ledger',
   walletconnect: '/walletconnect',
+  modalNew: '/modalNew'
+};
+export const contextualRouteNames = {
   modalActivation: '/modalX'
 };
+const firstModal = {
+  path: contextualRouteNames.modalActivation,
+  title: 'Modal',
+  component: ModalX,
+  modal: true
+};
+export const contextualArray: Array<any> = [firstModal];
 
 const routes: Array<any> = [
   {
@@ -32,9 +42,10 @@ const routes: Array<any> = [
     title: 'Transaction',
     component: Transaction
   },
+  firstModal,
   {
-    path: routeNames.modalActivation,
-    title: 'Modal',
+    path: routeNames.modalNew,
+    title: 'ModalNew',
     component: ModalX,
     modal: true
   }
@@ -51,7 +62,7 @@ const mappedRoutes = routes.map((route) => {
     path: route.path,
     component: wrappedComponent,
     authenticatedRoute: requiresAuth,
-    modal: route.modal
+    modal: route?.modal
   };
 });
 

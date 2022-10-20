@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { dAppName } from 'config';
-import { routeNames } from 'routes';
+import { contextualRouteNames, routeNames } from 'routes';
 
 const Home = () => {
+  const location = useLocation();
+
   return (
     <div className='d-flex flex-fill align-items-center container'>
       <div className='row w-100'>
@@ -29,12 +31,14 @@ const Home = () => {
                 </Link>
 
                 <Link
-                  to={routeNames.modalActivation}
+                  to={contextualRouteNames.modalActivation}
+                  state={{ background: location }}
                   className='btn btn-primary mt-3 ml-3 text-white'
                   data-testid='modalBtn'
                 >
                   Modal
                 </Link>
+                <Outlet />
               </div>
             </div>
           </div>

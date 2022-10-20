@@ -3,8 +3,6 @@ import { Button, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const ModalTest = (props) => {
-  const navigate = useNavigate();
-
   return (
     <Modal
       Body={props.Header}
@@ -12,6 +10,9 @@ const ModalTest = (props) => {
       size='lg'
       aria-labelledby='contained-modal-title-vcenter'
       centered
+      onHide={() => {
+        navigate(-1);
+      }}
     >
       <Modal.Header>
         <Modal.Title id='contained-modal-title-vcenter'>
